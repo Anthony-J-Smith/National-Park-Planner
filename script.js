@@ -27,7 +27,7 @@ $.ajax({
     });
 // Weather API
 var cityState = "Minneapolis,MN"
-var queryURLweather = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityState + ",US&units=imperial&appid=c8964eed8811dd75cc40e8ea60039298";
+var queryURLweather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityState + ",US&units=imperial&appid=c8964eed8811dd75cc40e8ea60039298";
 $.ajax({
     url: queryURLweather,
     method: "GET"
