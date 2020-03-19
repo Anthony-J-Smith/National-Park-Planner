@@ -24,7 +24,9 @@ $.ajax({
         // Object Deconstruction
         console.log(currentDay);
         var { temp, feels_like, temp_min, temp_max, humidity } = currentDay.main;
+        var { description } = currentDay.weather[0];
         console.log('farenheit: ', temp);
+        console.log('rain: ', description);
         // TODO: create a div with class='card-body'
         
         var weatherData = $('#weather-data');
@@ -33,12 +35,15 @@ $.ajax({
        
 
         // TODO: create a <p> for all data and assign text 
-        
+        // TODO: rain, precipitation
         var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
         var feelsLike = $('<p>').text("Feels Like: " + (feels_like) + " °F");
         var tempMin = $('<p>').text("Temperature Min: " + (temp_min) + " °F");
         var tempMax = $('<p>').text("Temperature Max: " + (temp_max) + " °F");
-        var humid = $('<p>').text("Humidity: " + (humidity));
+        var humid = $('<p>').text("Humidity: " + (humidity) + "%");
+        var rainLevel = $('<p>').text("Precipitation Level: " + (description));
+       
+        
 
         // TODO: Append all <p> tags to card-body div we created above
 
@@ -47,10 +52,11 @@ $.ajax({
         $(weatherDiv).append(tempMin);
         $(weatherDiv).append(tempMax);
         $(weatherDiv).append(humid);
+        $(weatherDiv).append(rainLevel);
 
 
         // TODO: Append the card-body to the card to the div with id='weather-data'
-        $("#weather-data .card-body").append(uv.append(btn));
+  
 
     }
 })
@@ -60,8 +66,19 @@ $.ajax({
 
 // $('#weather-data').append(temp);
 
+function day(today) {
+var d = new Date();
+var weekday = new Array(7);
+weekday[0] = "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
 
-
+var n = weekday[d.getDay()];
+};
 
 
 
