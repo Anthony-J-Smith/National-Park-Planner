@@ -13,14 +13,55 @@ var queryURLweather = "http://api.openweathermap.org/data/2.5/forecast?q=" + cit
 $.ajax({
     url: queryURLweather,
     method: "GET"
-}).then(function(feedback){
-// main, sys (sunset and sunrise), wind, and clouds.
-console.log(feedback.list.slice(0, 5))
+}).then(function (feedback) {
+    // main, sys (sunset and sunrise), wind, and clouds.
+    var fiveDayForecast = feedback.list.slice(0, 5);
+
+    // console.log(feedback.list.slice(0, 5))
+    //console.log(feedback)
+    for (let i = 0; i < fiveDayForecast.length; i++) {
+        var currentDay = fiveDayForecast[i];
+        // Object Deconstruction
+        console.log(currentDay);
+        var { temp, feels_like, temp_min, temp_max, humidity } = currentDay.main;
+        console.log('kelvin: ', temp);
+        // TODO: create a div with class='card-body'
+
+        var weatherDiv = $('#weather-data').append('<div>');
+
+        // TODO: create a <p> for all data and assign text 
+        
+        var temperature = $('<p>').text(temp);
+        var feelsLike = $('<p>').text(feels_like);
+        var tempMin = $('<p>').text(temp_min);
+        var tempMax = $('<p>').text(temp_max);
+        var humid = $('<p>').text(humidity);
+
+        // TODO: Append all <p> tags to card-body div we created above
+
+        $('#weather-data').append(temperature);
+        $('#weather-data').append(feelsLike);
+        $('#weather-data').append(tempMin);
+        $('#weather-data').append(tempMax);
+        $('#weather-data').append(humid);
+
+
+        // TODO: Append the card-body to the card to the div with id='weather-data'
+
+
+    }
 })
 
-var weather = $("#weather-data");
-console.log(queryURLweather);
-weather.append("<button>");
+
+
+
+// $('#weather-data').append(temp);
+
+
+
+
+
+
 
 //print a bootstrap card using jQuery
 
