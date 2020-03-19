@@ -9,7 +9,7 @@
 
 // Weather API
 var cityState = "Minneapolis,MN"
-var queryURLweather = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityState + ",US&appid=c8964eed8811dd75cc40e8ea60039298";
+var queryURLweather = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityState + ",US&units=imperial&appid=c8964eed8811dd75cc40e8ea60039298";
 $.ajax({
     url: queryURLweather,
     method: "GET"
@@ -24,30 +24,33 @@ $.ajax({
         // Object Deconstruction
         console.log(currentDay);
         var { temp, feels_like, temp_min, temp_max, humidity } = currentDay.main;
-        console.log('kelvin: ', temp);
+        console.log('farenheit: ', temp);
         // TODO: create a div with class='card-body'
-
-        var weatherDiv = $('#weather-data').append('<div>');
+        
+        var weatherData = $('#weather-data');
+        var cardBody = $("<div>").addClass("card-body");
+        var weatherDiv = weatherData.append(cardBody);
+       
 
         // TODO: create a <p> for all data and assign text 
         
-        var temperature = $('<p>').text(temp);
-        var feelsLike = $('<p>').text(feels_like);
-        var tempMin = $('<p>').text(temp_min);
-        var tempMax = $('<p>').text(temp_max);
-        var humid = $('<p>').text(humidity);
+        var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
+        var feelsLike = $('<p>').text("Feels Like: " + (feels_like) + " °F");
+        var tempMin = $('<p>').text("Temperature Min: " + (temp_min) + " °F");
+        var tempMax = $('<p>').text("Temperature Max: " + (temp_max) + " °F");
+        var humid = $('<p>').text("Humidity: " + (humidity));
 
         // TODO: Append all <p> tags to card-body div we created above
 
-        $('#weather-data').append(temperature);
-        $('#weather-data').append(feelsLike);
-        $('#weather-data').append(tempMin);
-        $('#weather-data').append(tempMax);
-        $('#weather-data').append(humid);
+        $(weatherDiv).append(temperature);
+        $(weatherDiv).append(feelsLike);
+        $(weatherDiv).append(tempMin);
+        $(weatherDiv).append(tempMax);
+        $(weatherDiv).append(humid);
 
 
         // TODO: Append the card-body to the card to the div with id='weather-data'
-
+        $("#weather-data .card-body").append(uv.append(btn));
 
     }
 })
