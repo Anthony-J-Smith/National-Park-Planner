@@ -7,16 +7,25 @@ $.ajax({
 }).then(function(response) {
     //   console.log(response);
       // render name, description
-      //console.log(response.data[0].name)
+      console.log(response);
+    
       //console.log(response.data[0].description)
-      console.log(response.data[0].images[0].url)
+      
     // Not able to grab specific objects (name, description)
+
     //   var { name, description } = response;
-    // left $() blank
-    // var movieDiv = $("#park-name");
+
+    for (let i = 0; i < response.data.length; i++) {
+        var allParks = response.data[i];
+        // Object Deconstruction
+        console.log(allParks.images[0].url);
+
+
+    }
+
     var name = response.data[0].name;
-    var des = response.data[0].description
-    var img = response.data[0].images[0].url
+    var des = response.data[0].description;
+    var img = response.data[0].images[0].url;
     var parkName = $("h5").text("Name: " + name);
     var parkDes = $("#placeholder").text("Description: " + des);
     var parkImg = $("img").attr("src" , img)
