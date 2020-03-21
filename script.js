@@ -68,6 +68,9 @@ $.ajax({
 
         // TODO: create a <p> for all data and assign text 
         // TODO: rain, precipitation
+
+        var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", {weekday: "long"}));
+
         var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
         var feelsLike = $('<p>').text("Feels Like: " + (feels_like) + " °F");
         var tempMin = $('<p>').text("Temperature Min: " + (temp_min) + " °F");
@@ -78,7 +81,7 @@ $.ajax({
         
 
         // TODO: Append all <p> tags to card-body div we created above
-
+        $(weatherDiv).append(title);
         $(weatherDiv).append(temperature);
         $(weatherDiv).append(feelsLike);
         $(weatherDiv).append(tempMin);
