@@ -5,15 +5,6 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response) {
-    //   console.log(response);
-      // render name, description
-      console.log(response);
-    
-      //console.log(response.data[0].description)
-      
-    // Not able to grab specific objects (name, description)
-
-    //   var { name, description } = response;
 
     for (let i = 0; i < response.data.length; i++) {
         var allParks = response.data[i];
@@ -21,28 +12,31 @@ $.ajax({
         // console.log(allParks.images[0].url);
         // console.log(allParks);
         // console.log(allParks.description);
-        imageUrl = allParks.images[0].url;
-        description = allParks.description;
-        park = allParks.name;
-        console.log(park);
-        console.log(description);
-        console.log(imageUrl);
+        var imgUrl = allParks.images[0].url;
+        var des = allParks.description;
+        var name = allParks.name;
+        // console.log(name);
+        // console.log(des);
+        // console.log(imgUrl);
         
+         var parkCard = $("#park-card");
         
+        var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+        var cardImg =$("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+        var cardBody = $("<div>").attr("class", "card-body");
+        var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+        var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+        var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
 
+        $(parkCard).append(cardDiv);
+        $(parkCard).append(cardImg);
+        $(parkCard).append(cardBody);
+        $(parkCard).append(cardh5);
+        $(parkCard).append(cardh6);
+        $(parkCard).append(cardp);
 
     }
 
-    var name = response.data[0].name;
-    var des = response.data[0].description;
-    var img = response.data[0].images[0].url;
-    var parkName = $("h5").text("Name: " + name);
-    var parkDes = $("#placeholder").text("Description: " + des);
-    var parkImg = $("img").attr("src" , img)
-    //append text to $() html or create tags using jquery method.
-    $(".card-title").append(parkName);
-    $("#placeholder").append(parkDes);
-    $("#img").append(parkImg)
     });
 // Weather API
 var cityState = "Minneapolis,MN"
@@ -59,17 +53,18 @@ $.ajax({
     for (let i = 0; i < fiveDayForecast.length; i++) {
         var currentDay = fiveDayForecast[i];
         // Object Deconstruction
-        console.log(currentDay);
+        //console.log(currentDay);
         var { temp, feels_like, temp_min, temp_max, humidity } = currentDay.main;
         var { description } = currentDay.weather[0];
-        console.log('farenheit: ', temp);
-        console.log('rain: ', description);
+       // console.log('farenheit: ', temp);
+        //console.log('rain: ', description);
         // TODO: create a div with class='card-body'
         
         var weatherData = $('#weather-data');
         var cardBody = $("<div>").addClass("card-body");
         var weatherDiv = weatherData.append(cardBody);
        
+        
 
         // TODO: create a <p> for all data and assign text 
         // TODO: rain, precipitation
@@ -99,50 +94,3 @@ $.ajax({
 })
 
 
-
-
-// $('#weather-data').append(temp);
-
-// function day(today) {
-// var d = new Date();
-// var weekday = new Array(7);
-// weekday[0] = "Sunday";
-// weekday[1] = "Monday";
-// weekday[2] = "Tuesday";
-// weekday[3] = "Wednesday";
-// weekday[4] = "Thursday";
-// weekday[5] = "Friday";
-// weekday[6] = "Saturday";
-
-// var n = weekday[d.getDay()];
-// };
-
-
-
-
-//print a bootstrap card using jQuery
-
-
-// for (var i = 0; i < data.list.length; i++) {
-//     // only look at forecasts around 3:00pm
-//     if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
-//       // create html elements for a bootstrap card
-//       var col = $("<div>").addClass("col-md-2");
-//       var card = $("<div>").addClass("card bg-primary text-white");
-//       var body = $("<div>").addClass("card-body p-2");
-
-//       var title = $("<h5>").addClass("card-title").text(new Date(data.list[i].dt_txt).toLocaleDateString());
-
-//       var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
-
-//       var p1 = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp_max + " °F");
-//       var p2 = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
-
-//       // merge together and put on page
-//       col.append(card.append(body.append(title, img, p1, p2)));
-//       $("#forecast .row").append(col);
-//     }
-// }
-
-//print var cityState in H5
-//retrieve data (temperature, feels like, uv-index, % chance of precipitation )
