@@ -18,7 +18,17 @@ $.ajax({
     for (let i = 0; i < response.data.length; i++) {
         var allParks = response.data[i];
         // Object Deconstruction
-        console.log(allParks.images[0].url);
+        // console.log(allParks.images[0].url);
+        // console.log(allParks);
+        // console.log(allParks.description);
+        imageUrl = allParks.images[0].url;
+        description = allParks.description;
+        park = allParks.name;
+        console.log(park);
+        console.log(description);
+        console.log(imageUrl);
+        
+        
 
 
     }
