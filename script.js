@@ -28,12 +28,12 @@ $.ajax({
         var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
         var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
 
-        $(parkCard).append(cardDiv);
-        $(parkCard).append(cardImg);
-        $(parkCard).append(cardBody);
-        $(parkCard).append(cardh5);
-        $(parkCard).append(cardh6);
-        $(parkCard).append(cardp);
+        $(parkCard).append(cardDiv , cardImg, cardBody, cardh5, cardh6, cardp);
+        // $(parkCard).append(cardImg);
+        // $(parkCard).append(cardBody);
+        // $(parkCard).append(cardh5);
+        // $(parkCard).append(cardh6);
+        // $(parkCard).append(cardp);
 
     }
 
@@ -46,11 +46,14 @@ $.ajax({
     method: "GET"
 }).then(function (feedback) {
     // main, sys (sunset and sunrise), wind, and clouds.
-    var fiveDayForecast = feedback.list.slice(0, 5);
+    // var fiveDayForecast = feedback.list.slice(0, 5);
+    // console.log(feedback.list);
 
-    // console.log(feedback.list.slice(0, 5))
-    //console.log(feedback)
-    for (let i = 0; i < fiveDayForecast.length; i++) {
+    // console.log(feedback.list.slice(0, 5));
+    //console.log(feedback);
+    var fiveDayForecast = feedback.list;
+
+    for (var i = 0; i < fiveDayForecast.length; i++) {
         var currentDay = fiveDayForecast[i];
         // Object Deconstruction
         //console.log(currentDay);
@@ -61,15 +64,20 @@ $.ajax({
         // TODO: create a div with class='card-body'
         
         var weatherData = $('#weather-data');
-        var cardBody = $("<div>").addClass("card-body");
-        var weatherDiv = weatherData.append(cardBody);
+        // var cardBody = $("<div>").addClass("card-body");
+        // var weatherDiv = weatherData.append(cardBody);
+        // var weatherDiv = weatherData.append(".weather")
+
        
         
-
+        // console.log(feedback.list[i].dt_txt.indexOf('15:00:00'));
         // TODO: create a <p> for all data and assign text 
         // TODO: rain, precipitation
-
+        if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
+        console.log(feedback.list[i]);
         var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", {weekday: "long"}));
+        
+        console.log(feedback.list[i].dt_txt.indexOf('15:00:00') !== -1);
 
         var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
         var feelsLike = $('<p>').text("Feels Like: " + (feels_like) + " °F");
@@ -77,22 +85,23 @@ $.ajax({
         var tempMax = $('<p>').text("Temperature Max: " + (temp_max) + " °F");
         var humid = $('<p>').text("Humidity: " + (humidity) + "%");
         var rainLevel = $('<p>').text("Precipitation Level: " + (description));
-       
+        
         
 
         // TODO: Append all <p> tags to card-body div we created above
-        $(weatherDiv).append(title);
-        $(weatherDiv).append(temperature);
-        $(weatherDiv).append(feelsLike);
-        $(weatherDiv).append(tempMin);
-        $(weatherDiv).append(tempMax);
-        $(weatherDiv).append(humid);
-        $(weatherDiv).append(rainLevel);
+        // $(weatherDiv).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel);
+        $(weatherData).append(title);
+        $(weatherData).append(temperature);
+        $(weatherData).append(feelsLike);
+        $(weatherData).append(tempMin);
+        $(weatherData).append(tempMax);
+        $(weatherData).append(humid);
+        $(weatherData).append(rainLevel);
 
 
         // TODO: Append the card-body to the card to the div with id='weather-data'
   
-
+        }
     }
 })
 
