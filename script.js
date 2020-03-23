@@ -28,7 +28,7 @@ $.ajax({
 
 });
 // Weather API
-var cityState = "Saint Paul, MN";
+var cityState = "Saint Paul,MN";
 var queryURLweather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityState + ",US&units=imperial&appid=c8964eed8811dd75cc40e8ea60039298";
 
 $.ajax({
@@ -45,7 +45,7 @@ $.ajax({
 
         var weatherData = $('#weather-data');
 
-
+            var cityWeather = $('<h5>').text('Saint Paul,MN');
         if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
             var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
             var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -55,7 +55,7 @@ $.ajax({
             var humid = $('<p>').text("Humidity: " + (humidity) + "%");
             var rainLevel = $('<p>').text("Precipitation Level: " + (description));
             var hrTag = $('<hr>');
-            $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+            $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
         }
     }
 })
@@ -84,7 +84,8 @@ $("#IA").click(function changeCity(cityState) {
             var { temp, feels_like, temp_min, temp_max, humidity } = currentDay.main;
             var { description } = currentDay.weather[0];
             var weatherData = $('#weather-data');
-
+            
+            var cityWeather = $('<h5>').text('Des Moines,IA');
             if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
                 var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
                 var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -94,7 +95,7 @@ $("#IA").click(function changeCity(cityState) {
                 var humid = $('<p>').text("Humidity: " + (humidity) + "%");
                 var rainLevel = $('<p>').text("Precipitation Level: " + (description));
                 var hrTag = $('<hr>');
-                $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+                $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
             }
         }
     });
@@ -150,6 +151,8 @@ $("#MN").click(function changeCity(cityState) {
             var { description } = currentDay.weather[0];
             var weatherData = $('#weather-data');
 
+            var cityWeather = $('<h5>').text('Saint Paul,MN');
+
             if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
                 var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
                 var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -159,7 +162,7 @@ $("#MN").click(function changeCity(cityState) {
                 var humid = $('<p>').text("Humidity: " + (humidity) + "%");
                 var rainLevel = $('<p>').text("Precipitation Level: " + (description));
                 var hrTag = $('<hr>');
-                $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+                $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
             }
         }
     });
@@ -214,6 +217,7 @@ $("#ND").click(function changeCity(cityState) {
             var { description } = currentDay.weather[0];
             var weatherData = $('#weather-data');
 
+            var cityWeather = $('<h5>').text('Bismarck,ND');
             if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
                 var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
                 var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -223,7 +227,7 @@ $("#ND").click(function changeCity(cityState) {
                 var humid = $('<p>').text("Humidity: " + (humidity) + "%");
                 var rainLevel = $('<p>').text("Precipitation Level: " + (description));
                 var hrTag = $('<hr>');
-                $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+                $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
             }
         }
     });
@@ -277,6 +281,7 @@ $("#SD").click(function changeCity(cityState) {
             var { description } = currentDay.weather[0];
             var weatherData = $('#weather-data');
 
+            var cityWeather = $('<h5>').text('Pierre,SD');
             if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
                 var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
                 var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -286,7 +291,7 @@ $("#SD").click(function changeCity(cityState) {
                 var humid = $('<p>').text("Humidity: " + (humidity) + "%");
                 var rainLevel = $('<p>').text("Precipitation Level: " + (description));
                 var hrTag = $('<hr>');
-                $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+                $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
             }
         }
     });
@@ -340,6 +345,7 @@ $("#WI").click(function changeCity(cityState) {
             var { description } = currentDay.weather[0];
             var weatherData = $('#weather-data');
 
+            var cityWeather = $('<h5>').text('Madison,WI');
             if (feedback.list[i].dt_txt.indexOf('15:00:00') !== -1) {
                 var title = $('<h5>').addClass('card-title').text(new Date(feedback.list[i].dt_txt).toLocaleDateString("en-EN", { weekday: "long" }));
                 var temperature = $('<p>').text("Temperature: " + (temp) + " °F");
@@ -349,7 +355,7 @@ $("#WI").click(function changeCity(cityState) {
                 var humid = $('<p>').text("Humidity: " + (humidity) + "%");
                 var rainLevel = $('<p>').text("Precipitation Level: " + (description));
                 var hrTag = $('<hr>');
-                $(weatherData).append(title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
+                $(weatherData).append(cityWeather, title, temperature, feelsLike, tempMin, tempMax, humid, rainLevel, hrTag);
             }
         }
     });
