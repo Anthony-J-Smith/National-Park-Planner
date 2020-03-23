@@ -20,8 +20,9 @@ $.ajax({
         var cardh5 = $("<h5>").attr("class", "card-title").text(name);
         var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
         var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+        var hrTag = $('<hr>');
 
-        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp);
+        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
 
     }
 
@@ -89,6 +90,35 @@ $("#IA").click(function changeCity(cityState) {
             }
         }
     });
+
+    var stateIn = "IA"
+    var queryURL = "https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=" + stateIn + "&api_key=cqjOFJchUaVcTbkS5D8SYpZ1Mfz1wQciEmZ3P5Cf";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        for (let i = 0; i < response.data.length; i++) {
+            var allParks = response.data[i];
+
+            var imgUrl = allParks.images[0].url;
+            var des = allParks.description;
+            var name = allParks.name;
+
+            var parkCard = $("#park-card");
+            var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+            var cardImg = $("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+            var cardBody = $("<div>").attr("class", "card-body");
+            var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+            var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+            var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+            var hrTag = $('<hr>');
+
+            $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
+
+        }
+
+    });
 });
 
 $("#MN").click(function changeCity(cityState) {
@@ -121,6 +151,35 @@ $("#MN").click(function changeCity(cityState) {
             }
         }
     });
+
+    var stateIn = "MN"
+var queryURL = "https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=" + stateIn + "&api_key=cqjOFJchUaVcTbkS5D8SYpZ1Mfz1wQciEmZ3P5Cf";
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+
+    for (let i = 0; i < response.data.length; i++) {
+        var allParks = response.data[i];
+
+        var imgUrl = allParks.images[0].url;
+        var des = allParks.description;
+        var name = allParks.name;
+
+        var parkCard = $("#park-card");
+        var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+        var cardImg = $("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+        var cardBody = $("<div>").attr("class", "card-body");
+        var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+        var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+        var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+        var hrTag = $('<hr>');
+
+        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
+
+    }
+
+});
 });
 
 $("#ND").click(function changeCity(cityState) {
@@ -153,6 +212,34 @@ $("#ND").click(function changeCity(cityState) {
             }
         }
     });
+    var stateIn = "ND"
+var queryURL = "https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=" + stateIn + "&api_key=cqjOFJchUaVcTbkS5D8SYpZ1Mfz1wQciEmZ3P5Cf";
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+
+    for (let i = 0; i < response.data.length; i++) {
+        var allParks = response.data[i];
+
+        var imgUrl = allParks.images[0].url;
+        var des = allParks.description;
+        var name = allParks.name;
+
+        var parkCard = $("#park-card");
+        var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+        var cardImg = $("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+        var cardBody = $("<div>").attr("class", "card-body");
+        var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+        var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+        var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+        var hrTag = $('<hr>');
+
+        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
+
+    }
+
+});
 });
 
 $("#SD").click(function changeCity(cityState) {
@@ -185,6 +272,34 @@ $("#SD").click(function changeCity(cityState) {
             }
         }
     });
+    var stateIn = "SD"
+var queryURL = "https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=" + stateIn + "&api_key=cqjOFJchUaVcTbkS5D8SYpZ1Mfz1wQciEmZ3P5Cf";
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+
+    for (let i = 0; i < response.data.length; i++) {
+        var allParks = response.data[i];
+
+        var imgUrl = allParks.images[0].url;
+        var des = allParks.description;
+        var name = allParks.name;
+
+        var parkCard = $("#park-card");
+        var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+        var cardImg = $("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+        var cardBody = $("<div>").attr("class", "card-body");
+        var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+        var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+        var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+        var hrTag = $('<hr>');
+
+        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
+
+    }
+
+});
 });
 
 $("#WI").click(function changeCity(cityState) {
@@ -217,6 +332,34 @@ $("#WI").click(function changeCity(cityState) {
             }
         }
     });
+    var stateIn = "WI"
+var queryURL = "https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=" + stateIn + "&api_key=cqjOFJchUaVcTbkS5D8SYpZ1Mfz1wQciEmZ3P5Cf";
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+
+    for (let i = 0; i < response.data.length; i++) {
+        var allParks = response.data[i];
+
+        var imgUrl = allParks.images[0].url;
+        var des = allParks.description;
+        var name = allParks.name;
+
+        var parkCard = $("#park-card");
+        var cardDiv = $("<div>").attr("class", "card float-left").attr("style", "width: 18rem");
+        var cardImg = $("<img>").attr("src", imgUrl).attr("class", "card-img-top").attr("id", "img").attr("alt", "");
+        var cardBody = $("<div>").attr("class", "card-body");
+        var cardh5 = $("<h5>").attr("class", "card-title").text(name);
+        var cardh6 = $("<h6>").attr("class", "card-subtitle mb-2 text-muted");
+        var cardp = $("<p>").attr("class", "card-text").attr("id", "placeholder").text(des);
+        var hrTag = $('<hr>');
+
+        $(parkCard).append(cardDiv, cardImg, cardBody, cardh5, cardh6, cardp, hrTag);
+
+    }
+
+});
 });
 
 
