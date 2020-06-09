@@ -1,5 +1,5 @@
 # Park Planner
-## What is Park Planner
+## Description
 Park Planner displays information, and a five-day weather forecast, for all state and national parks located in Iowa, Minnesota, North Dakota, South Dakota, and Wisconsin.
 ## Prerequisites
 Anyone with a phone, tablet or computer with a modern web browser and an internet connection can access and use Park Planner.
